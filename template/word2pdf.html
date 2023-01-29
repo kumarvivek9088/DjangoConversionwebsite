@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word to Pdf</title>
+</head>
+<body>
+    <div >
+        <h1>Hello {{request.user}}</h1>
+        <form method="post" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            Upload your word file here<input type="file" name="wrd" accept=".docx"><br>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+    {% for f in file %}
+        <a href="/media/{{f.fl}}.pdf">click here</a>
+    {% endfor %}
+
+</body>
+</html>

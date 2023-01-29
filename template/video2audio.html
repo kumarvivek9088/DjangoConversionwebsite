@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video to audio</title>
+</head>
+<body>
+    <p>Choose your video file</p>
+    <form method="post" enctype="multipart/form-data" action="">
+        {% csrf_token %}
+        <input type="file" accept="Video/*" name="video" required><br>
+        choose output format: -<br>
+        <input type="radio" name="output" value=".mp3" required>
+        <label>mp3</label><br>
+        <input type="radio" name="output" value=".wav" required>
+        <label>wav</label><br>
+        <input type="radio" name="output" value=".ogg" required>
+        <label>ogg</label><br><br>
+        <button type="submit">Upload</button>
+    </form>
+    {% for f in file %}
+        <a href="/media/{{f.fl}}{{f.otformat}}">click here</a>
+    {% endfor %}
+</body>
+</html>
