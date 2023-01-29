@@ -1,0 +1,1 @@
+This is static section where you can put your css and javascript files to add them into your html files.
